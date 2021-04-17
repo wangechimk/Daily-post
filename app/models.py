@@ -14,11 +14,12 @@ class Articles:
     """
     """
 
-    def __init__(self, title, author, url, url_to_image, published_at):
+    def __init__(self, title, author,description, url, url_to_image, published_at):
         """
         """
         self.title = title
         self.author = author
+        self.description = description
         self.url = url
         self.url_to_image = url_to_image
         self.published_at = published_at 

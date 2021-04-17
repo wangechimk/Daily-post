@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+<!-- title -->
+{% block title %}Daily Post | Articles{% endblock %}
+
+<!-- content -->
+{% block content %}
+<div>
+    {% for item in article_source%}
+    <p>{{item.title}}</p>
+    {% endfor %}
+</div>
+
+{% endblock %} 
