@@ -7,7 +7,7 @@ class SourcesTest(unittest.TestCase):
     def setUp(self):
         """
         """
-        self.new_source = Sources('BBC News', 'for up-to the minute news', 'https://www.bbc.com')
+        self.new_source = Sources('bbc-news','BBC News', 'for up-to the minute news', 'https://www.bbc.com')
 
     def test_source(self):
         """
@@ -18,6 +18,7 @@ class SourcesTest(unittest.TestCase):
     def test_init(self):
         """
         """
+        self.new_source.id = 'bbc-news'
         self.new_source.name='BBC News'
         self.new_source.description = 'for up-to the minute news'
         self.new_source.url='https://www.bbc.com'
