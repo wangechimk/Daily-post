@@ -4,13 +4,13 @@ class Config:
     pass
 
 
-class ProdConfig(Config):
+class ProductionConfig(Config):
     """
     """
     pass
 
 
-class DevConfig(Config):
+class DevelopmentConfig(Config):
     """
     """
     DEBUG = True 
