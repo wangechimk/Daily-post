@@ -6,4 +6,12 @@
 <!-- content -->
 {% block content %}
 <h3>Daily Post homepage template using base template</h3>
+
+<!-- loop through items -->
+{% for item in news_sources %}
+<ul>
+    <li>{{item.name}}</li>
+</ul>
+{% endfor %}
+<!--  -->
 {% endblock %} 
