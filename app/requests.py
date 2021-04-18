@@ -1,12 +1,16 @@
-from app import app
 from .models import Sources, Articles
 import urllib.request, json
 from newsapi import NewsApiClient
 
-key = app.config['API_KEY']
-url = app.config['SOURCE_URL']
-newsapi = NewsApiClient(api_key=key)
+key = None
+url = None
+newsapi = None
 
+def configure_request(app):
+    global key, url, newsapi
+    key = app.config['NEWS_API_KEY']
+    url = app.config['SOURCE_URL']
+    newsapi = NewsApiClient(api_key=key)
 
 def sources():
     '''

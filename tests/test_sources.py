@@ -1,5 +1,5 @@
 import unittest
-from models import Sources
+from app.models import Sources
 
 class SourcesTest(unittest.TestCase):
     """
@@ -23,5 +23,3 @@ class SourcesTest(unittest.TestCase):
         self.new_source.description = 'for up-to the minute news'
         self.new_source.url='https://www.bbc.com'
 
-if __name__ == '__main__':
-    unittest.main() 
