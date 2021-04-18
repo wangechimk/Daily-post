@@ -9,24 +9,27 @@
 
 <!-- content -->
 {% block content %}
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
             <h4 class="lead text-center">SOURCES</h4>
-            <ul class="row">
+            <ul>
                 <!-- loop through items -->
                 {% for item in news_sources%}
-                <a href="/articles/{{item.id}}" class="btn btn-outline-secondary btn-block">{{item.name}}</a> {% endfor %}
+                <a href="/articles/{{item.id}}" class="btn btn-outline-secondary btn-block">{{item.name}}</a> {% endfor
+                %}
             </ul>
         </div>
-        <div class="offset-1 col-md-8 offset-1">
+        <div class="offset-1 col-md-8 ">
             <div class="card">
-                <img src="" alt="">
-                <div class="card-footer"></div>
+                <img src="{{article.url_to_image}}" class="card-img-top" alt="top-article">
+                <div class="card-text">
+                    <a href="{{article.url}}" class="text-dark">{{ article.description }}</a>
+                    <br>
+                </div>
+
             </div>
         </div>
-</div>
 
-</div>
 
-{% endblock %} 
+        {% endblock %}
