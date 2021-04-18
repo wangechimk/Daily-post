@@ -20,12 +20,24 @@ def sources():
     data_list = data['sources']
     source_list=[]
     for item in data_list:
-        new_source = Sources(item['id'], item['name'], item['description'], item['url'])
+        new_source = Sources(item['id'], item['name'])
         source_list.append(new_source)
 
     return source_list
+def headlines():
+    '''
+    function that gets all english nes sources in a list
+    '''
+    res = newsapi.get_top_headlines(language='en', page_size=6, sources='cnn')
+    res_list =  res['articles']
+    trending = []
+    for item in res_list:
+        top_article = Headlines(item['title'], item['urlToImage'], item['url'])
+        trending.append(top_article)
 
-    def articles(source_id):
+    return trending
+
+def articles(source_id):
     '''
     function that gets all english news sources in a list
     '''

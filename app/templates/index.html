@@ -1,35 +1,33 @@
 {% extends "base.html" %}
 
-<!-- style block -->
-{% block styles %} {{ super() }}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"> {% endblock %}
-
 <!-- title -->
-{% block title %} HOME {% endblock %}
+{% block title %} THE Daily Post | Home {% endblock %}
 
 <!-- content -->
 {% block content %}
 <div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <h4 class="lead text-center">SOURCES</h4>
-            <ul>
-                <!-- loop through items -->
-                {% for item in news_sources%}
-                <a href="/articles/{{item.id}}" class="btn btn-outline-secondary btn-block">{{item.name}}</a> {% endfor
-                %}
-            </ul>
-        </div>
-        <div class="offset-1 col-md-8 ">
-            <div class="card">
-                <img src="{{article.url_to_image}}" class="card-img-top" alt="top-article">
-                <div class="card-text">
-                    <a href="{{article.url}}" class="text-dark">{{ article.description }}</a>
-                    <br>
-                </div>
+    <!-- sources -->
+    <div class="nav-scroller bg-dark p-0">
+        <nav class="d-flex wrap justify-content-between">
+            {% for item in news_sources%}
+            <a href="/articles/{{item.id}}" class="p-2 text-light">{{item.name | upper }}</a> {% endfor %}
+        </nav>
+    </div>
 
+    <!-- trending -->
+    <div class="row hidden-md-up mt-3">
+        {% for article in trending_article %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-block">
+                    <img src="{{article.url_to_image}}" class="card-img-top" alt="">
+                    <a href="{{article.url}} " class="card-link">
+                        <p class="card-text text-secondary">{{ article.title }}</p>
+                    </a>
+                </div>
             </div>
         </div>
-
-
-        {% endblock %}
+        {% endfor %}
+    </div>
+    {% endblock %}
+</div>

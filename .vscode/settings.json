@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/michellewangechi/Documents/Daily-post/virtual/bin/python3.9"
+    "python.pythonPath": "/Users/michellewangechi/Documents/Daily-post/virtual/bin/python3.9",
+    "python.formatting.provider": "autopep8"
 }
