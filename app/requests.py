@@ -6,30 +6,36 @@ key = None
 url = None
 newsapi = None
 
+
 def configure_request(app):
     global key, url, newsapi
     key = app.config['NEWS_API_KEY']
     url = app.config['SOURCE_URL']
     newsapi = NewsApiClient(api_key=key)
 
+
 def sources():
-    '''
+    """
     function that gets all english news sources in a list
-    '''
-    data = newsapi.get_sources(language='en',country='us', category='general')
+    """
+    data = newsapi.get_sources(language='en', country='us')
+    print(data,'data')
     data_list = data['sources']
-    source_list=[]
+    print(data_list,'data_list')
+    source_list = []
     for item in data_list:
         new_source = Sources(item['id'], item['name'])
         source_list.append(new_source)
 
     return source_list
+
+
 def headlines():
-    '''
+    """
     function that gets all english nes sources in a list
-    '''
+    """
     res = newsapi.get_top_headlines(language='en', page_size=6, sources='cnn')
-    res_list =  res['articles']
+    res_list = res['articles']
     trending = []
     for item in res_list:
         top_article = Headlines(item['title'], item['urlToImage'], item['url'])
@@ -37,10 +43,11 @@ def headlines():
 
     return trending
 
+
 def articles(source_id):
-    '''
+    """
     function that gets all english news sources in a list
-    '''
+    """
     source_url = url.format(source_id, key)
     with urllib.request.urlopen(source_url) as uri:
         result = uri.read()
@@ -55,8 +62,8 @@ def articles(source_id):
 
 
 def get_data(source_dict):
-    '''
-    '''
+    """
+    """
     article_list = []
     for item in source_dict:
         title = item.get('title')
@@ -68,5 +75,5 @@ def get_data(source_dict):
 
         if url_to_image and url:
             new_article = Articles(title, author, description, url, url_to_image, published_at)
-            article_list.append(new_article)     
-    return article_list 
+            article_list.append(new_article)
+    return article_list
