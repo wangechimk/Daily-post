@@ -23,7 +23,7 @@ def sources():
     """
     function that gets all english news sources in a list
     """
-    data = newsapi.get_sources(language='en', country='us')
+    data = newsapi.get_sources(language='en', country='ca')
     data_list = data['sources']
     source_list = []
     for item in data_list:

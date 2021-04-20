@@ -5,9 +5,12 @@
 
 <!-- content -->
 {% block content %}
-<div class="container">
+
+    <div class="container-fluid">
+
     <!-- sources -->
     <div class="nav-scroller bg-dark p-0">
+
         <nav class="d-flex wrap justify-content-between">
             {% for item in news_sources%}
             <a href="/articles/{{item.id}}" class="p-2 text-light">{{item.name | upper }}</a> {% endfor %}
@@ -15,16 +18,16 @@
     </div>
 
     <!-- trending -->
-    <div class="row hidden-md-up mt-3">
+    <div class="row">
         {% for article in trending_article %}
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-block">
+            <div class="all-cards">
+
                     <img src="{{article.url_to_image}}" class="card-img-top" alt="">
                     <a href="{{article.url}} " class="card-link">
                         <p class="card-text text-secondary">{{ article.title }}</p>
                     </a>
-                </div>
+
             </div>
         </div>
         {% endfor %}
