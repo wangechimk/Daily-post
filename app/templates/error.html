@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+<!-- title -->
+{% block title %} Page not found {% endblock%}
+
+<!-- content -->
+{% block content %}
+<div class="container-fluid">
+    <img class="w-200" src="{{(url_for('static',filename='img/error.jpg')}}" alt="">
+
+</div>
