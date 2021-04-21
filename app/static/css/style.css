@@ -34,3 +34,6 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
   }
+  .text-secondary{
+  color: white;
+  }
